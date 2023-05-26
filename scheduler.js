@@ -119,7 +119,10 @@ app.get("/demo-msg",async function(req,resp){
 });
 
 app.get('/', function(request, response) {
-  let result = 'App is running';
+  let result = {
+    success: true,
+    message: "App is running!"
+  };
   response.send(result);
 });
 
