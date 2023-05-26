@@ -8,14 +8,11 @@
     "dev-start": "pm2-runtime start ecosystem.config.js --env production",
     "dev-stop": "pm2-runtime stop all",
     "stop": "killall -SIGINT mimin-demo-app",
-    "start": "NODE_ENV=DEVELOPMENT nodemon  -w src --exec \"babel-node src  \""
+    "start": "nodemon src/index.js --exec babel-node src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
     "async": "^2.5.0",
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
@@ -40,6 +37,9 @@
     "pm2": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/node": "^7.20.7"
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5"
   }
 }
