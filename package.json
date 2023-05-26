@@ -1,22 +1,40 @@
 {
-  "name": "starter-express-api",
+  "name": "demo_01",
   "version": "1.0.0",
-  "description": "",
+  "description": "rnd web scrapping with cherioo",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cyclic-software/starter-express-api.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "stop": "pm2-runtime stop all"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cyclic-software/starter-express-api/issues"
-  },
-  "homepage": "https://github.com/cyclic-software/starter-express-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "async": "^2.5.0",
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.10",
+    "cheerio-tableparser": "^1.0.1",
+    "cli-table": "^0.3.1",
+    "connect-flash": "^0.1.1",
+    "connect-timeout": "^1.9.0",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0",
+    "install": "^0.13.0",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.0",
+    "node-cron": "^3.0.0",
+    "npm": "^8.3.0",
+    "path": "^0.12.7",
+    "pm2": "^5.1.2",
+    "puppeteer": "^13.0.0",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-adblocker": "^2.12.0",
+    "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "slack-node": "^0.1.8"
   }
 }
