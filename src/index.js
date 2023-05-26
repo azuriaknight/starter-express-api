@@ -143,8 +143,10 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-app.get("/demo-msg",async function(req,resp){
-  let msg = `Demo test notif https://www.cyclic.sh`
+app.get("/demo-msg",async function(req, resp){
+  let params = req.query
+  let msg = `Demo test notif from server cyclic.sh`
+  if(!isEmpty(params.message)) msg = params.message
   teleX.sendMessage({message: `${msg}`});
 
   return resp.send({success: true, message: "OK"});
