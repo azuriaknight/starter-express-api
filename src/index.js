@@ -1,5 +1,7 @@
 const cron = require('node-cron');
 const moment = require('moment');
+const http = require('http');
+const cookieParser = require('cookie-parser');
 const firebaseAdmin = require("./firebase-admin").getAdmin();
 const express = require('express');
 const Security = require('./security');
@@ -23,8 +25,6 @@ const vectorBuff = Security.stringToBuffer(vector);
 const firebaseRef = firebaseAdmin.database().ref("artemisUsers");
 
 const app = express();
-
-app.set('port', (process.env.PORT || 5000));
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -111,6 +111,37 @@ function validateStellarAddress(stellarAddress){
   return result
 }
 
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (Number.isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+const port = normalizePort(process.env.PORT || '5000');
+app.set('port', (port));
+app.server = http.createServer(app);
+app.server.setTimeout(420000);
+
+process.on('SIGINT', () => {
+  console.info('SIGINT signal received.');
+  console.log('Closing http server.');
+  app.server.close(() => {
+    console.log('Http server closed.');
+  });
+  console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+  process.exit(0);
+});
+
 app.get("/demo-msg",async function(req,resp){
   let msg = `Demo test notif https://www.cyclic.sh`
   teleX.sendMessage({message: `${msg}`});
@@ -126,8 +157,9 @@ app.get('/', function(request, response) {
   response.send(result);
 });
 
-app.listen(app.get('port'), function() {
-  console.log('App is running, server is listening on port ', app.get('port'));
-});
+// app.listen(app.get('port'), function() {
+//   console.log('App is running, server is listening on port ', app.get('port'));
+// });
+app.server.listen(port);
 
 
