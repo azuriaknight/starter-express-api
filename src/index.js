@@ -127,6 +127,7 @@ function normalizePort(val) {
   return false;
 }
 
+process.title = 'mimin-demo-app';
 const port = normalizePort(process.env.PORT || '5000');
 app.set('port', (port));
 app.server = http.createServer(app);
