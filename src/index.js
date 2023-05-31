@@ -153,12 +153,9 @@ app.get("/demo-msg",async function(req, resp){
 });
 
 const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
-app.get(`/hook${botToken}`,async function(req, resp){
-  let params = req.query
-  let msg = `Demo test notif from server cyclic.sh`
-  if(!isEmpty(params.message)) msg = params.message
-  teleX.sendMessage({message: `${msg}`});
-
+app.post(`/hook${botToken}`,async function(req, resp){
+  console.log(`=== receive message from telegram ===`)
+  console.log(req.body)
   return resp.send({success: true, message: "OK"});
 });
 
