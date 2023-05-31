@@ -25,6 +25,7 @@ const vectorBuff = Security.stringToBuffer(vector);
 const firebaseRef = firebaseAdmin.database().ref("artemisUsers");
 
 const app = express();
+app.use(express.json());
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -161,7 +162,7 @@ const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
 // });
 
 app.post(`/hook${botToken}`, (req, res) => {
-  console.log(req.payload)
+  console.log(req.body)
   res.sendStatus(200);
 });
 
