@@ -9,7 +9,7 @@
     "dev-stop": "pm2-runtime stop all",
     "stop": "killall -SIGINT mimin-demo-app",
     "dev": "nodemon src/index.js",
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
