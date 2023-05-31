@@ -156,7 +156,8 @@ const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
 app.post(`/hook${botToken}`,async function(req, resp){
   console.log(`=== receive message from telegram ===`)
   console.log(req.body)
-  return resp.send({success: true, message: "OK"});
+  // return resp.send({success: true, message: "OK"});
+  resp.sendStatus(200);
 });
 
 app.get('/', function(request, response) {
