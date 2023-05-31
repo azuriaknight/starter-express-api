@@ -8,7 +8,8 @@ module.exports = {
   sendMessage: function ({message}) {
     let urlTeleX = `${teleBaseApiUrl}${message}&parse_mode=html&disable_web_page_preview=true`
     axios.get(urlTeleX).then(resp => {
-        // console.log(resp.data);
+      console.log(`=== deliver message via telegram ===`)
+      // console.log(resp.data);
     });
   }
 };

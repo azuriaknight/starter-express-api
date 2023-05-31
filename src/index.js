@@ -152,6 +152,16 @@ app.get("/demo-msg",async function(req, resp){
   return resp.send({success: true, message: "OK"});
 });
 
+const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
+app.get(`/hook${botToken}`,async function(req, resp){
+  let params = req.query
+  let msg = `Demo test notif from server cyclic.sh`
+  if(!isEmpty(params.message)) msg = params.message
+  teleX.sendMessage({message: `${msg}`});
+
+  return resp.send({success: true, message: "OK"});
+});
+
 app.get('/', function(request, response) {
   let result = {
     success: true,
