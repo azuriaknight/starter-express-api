@@ -8,6 +8,7 @@
     "dev-start": "pm2-runtime start ecosystem.config.js --env production",
     "dev-stop": "pm2-runtime stop all",
     "stop": "killall -SIGINT mimin-demo-app",
+    "dev": "nodemon src/index.js",
     "start": "nodemon src/index.js"
   },
   "author": "",
