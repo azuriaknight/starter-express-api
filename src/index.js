@@ -161,7 +161,7 @@ const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
 // });
 
 app.post(`/hook${botToken}`, (req, res) => {
-  console.log(req)
+  console.log(req.payload)
   res.sendStatus(200);
 });
 
