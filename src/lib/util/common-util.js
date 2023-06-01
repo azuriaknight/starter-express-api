@@ -225,7 +225,7 @@ class CommonUtil {
   }
 
   static getWelcomeMessage(ctx, name, languageService) {
-    return languageService.welcomeMessage.replace('__name__', name).replace('__botName__', ctx.botInfo.first_name);
+    return languageService.welcomeMessage.replace('__name__', name).replace('__botName__', global.CONFIGURATION.botConfig.name);
   }
 
   static removeBotName(ctx, text, isIcd) {
