@@ -1,0 +1,15 @@
+#Server Information
+  DEVELOPMENT:
+    serverInfo: 
+        applicationName: AZURIAN BOT
+        appVersion: 1.0.0 
+        instanceName: 
+        port: 8083 
+        corsHeaders: ["Link"]
+        publishHost: https://zany-gold-scorpion-garb.cyclic.app
+    botConfig:
+        token: 2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0 # 2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0 6190170452:AAHHwntNDDAYyabVU7uGopoCQCn7YgjvcfQ
+        name: Edu Bot(Dev) # Dev_AIHSP_Bot
+        hookPath: /hook
+        renderImage: true
+        defaultLanguage: id

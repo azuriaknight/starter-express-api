@@ -8,10 +8,15 @@
     "dev-start": "pm2-runtime start ecosystem.config.js --env production",
     "dev-stop": "pm2-runtime stop all",
     "stop": "killall -SIGINT mimin-demo-app",
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "ENV=DEVELOPMENT nodemon src/index.js",
+    "start": "ENV=DEVELOPMENT node src/index.js"
   },
-  "author": "",
+  "nodemonConfig": {
+    "ignore": [
+      "src/cache/*"
+    ]
+  },
+  "author": "Solitude",
   "license": "ISC",
   "dependencies": {
     "async": "^2.5.0",
@@ -28,14 +33,17 @@
     "crypto": "^1.0.1",
     "express": "^4.17.1",
     "firebase-admin": "^10.0.0",
+    "fs": "^0.0.1-security",
     "install": "^0.13.0",
+    "js-yaml": "^4.1.0",
     "moment": "^2.24.0",
     "morgan": "^1.9.0",
     "node-cron": "^3.0.0",
     "nodemon": "^2.0.22",
     "npm": "^8.3.0",
     "path": "^0.12.7",
-    "pm2": "^5.1.2"
+    "pm2": "^5.1.2",
+    "telegraf": "^4.12.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",

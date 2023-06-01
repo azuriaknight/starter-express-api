@@ -1,12 +1,22 @@
 const cron = require('node-cron');
+global.CONFIGURATION = require('./lib/util/config-reader').getEnv();
+global.__basedir = __dirname;
 const moment = require('moment');
 const http = require('http');
 const cookieParser = require('cookie-parser');
 const firebaseAdmin = require("./firebase-admin").getAdmin();
 const express = require('express');
 const Security = require('./security');
+const BotController = require('./controller/bot-controller');
 
 let teleX = require('./telegram-integration');
+
+// const port = global.CONFIGURATION.serverInfo.port; 
+const port = normalizePort(process.env.PORT || global.CONFIGURATION.serverInfo.port);
+const TOKEN = global.CONFIGURATION.botConfig.token;
+const hookPath = global.CONFIGURATION.botConfig.hookPath;
+const botController = new BotController();
+
 let arrUserTask = []
 
 //config
@@ -129,7 +139,6 @@ function normalizePort(val) {
 }
 
 process.title = 'mimin-demo-app';
-const port = normalizePort(process.env.PORT || '5000');
 app.set('port', (port));
 app.server = http.createServer(app);
 app.server.setTimeout(420000);
@@ -146,7 +155,7 @@ process.on('SIGINT', () => {
 
 app.get("/demo-msg", function(req, resp){
   let params = req.query
-  let msg = `Demo test notif from server cyclic.sh`
+  let msg = `Demo test notif from Cyclic`
   if(!isEmpty(params.message)) msg = params.message
   teleX.sendMessage({message: `${msg}`});
 
@@ -161,8 +170,8 @@ const botToken = `2123471074:AAGQ6KhF0u8ZzvEiUH4t4Aj8KwVTR7nNYe0`
 //   resp.sendStatus(200);
 // });
 
-app.post(`/hook${botToken}`, (req, res) => {
-  console.log(req.body)
+app.post(`${hookPath}${TOKEN}`, (req, res) => {
+  botController.processMessage(req.body);
   res.sendStatus(200);
 });
 
