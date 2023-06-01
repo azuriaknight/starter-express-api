@@ -7,8 +7,6 @@ module.exports = class BotService {
 
     async restart(ctx, languageService, mainMenu) {
 
-        console.log(`restart service`)
-
         if (mainMenu) {
             await commonUtil.sleep(5000);
         }
@@ -84,7 +82,7 @@ module.exports = class BotService {
         // bot.telegram.sendMessage(ctx.chat.id, pesan, options);
 
         // console.log('call about method')
-        let pesan = languageService.aboutText.replace('__botName__', ctx.botInfo.first_name);
+        let pesan = languageService.aboutText.replace('__botName__', global.CONFIGURATION.botConfig.name);
         var options = {
             parse_mode: 'HTML'
         };

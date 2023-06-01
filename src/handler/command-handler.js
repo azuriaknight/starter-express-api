@@ -10,7 +10,6 @@ bot.start(async (ctx) => {
 
 bot.command('restart', async (ctx) => {
     var languageService = await CommonUtil.prepareLanguage(ctx.from.id);
-    console.log(`call restart`)
     await botService.restart(ctx, languageService);
 });
 
