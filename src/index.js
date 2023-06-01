@@ -13,7 +13,7 @@ let teleX = require('./telegram-integration');
 
 // const port = global.CONFIGURATION.serverInfo.port; 
 const port = normalizePort(process.env.PORT || global.CONFIGURATION.serverInfo.port);
-const TOKEN = global.CONFIGURATION.botConfig.token;
+const TOKEN = `${global.CONFIGURATION.botConfig.secret}${global.CONFIGURATION.botConfig.secondVerse}`;
 const hookPath = global.CONFIGURATION.botConfig.hookPath;
 const botController = new BotController();
 

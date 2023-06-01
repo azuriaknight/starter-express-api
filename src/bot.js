@@ -1,6 +1,6 @@
 const { Telegraf } = require('telegraf');
 
-const TOKEN = global.CONFIGURATION.botConfig.token;
+const TOKEN = `${global.CONFIGURATION.botConfig.secret}${global.CONFIGURATION.botConfig.secondVerse}`;
 // const port = global.CONFIGURATION.serverInfo.port;
 const url = global.CONFIGURATION.serverInfo.publishHost;
 const hookPath = global.CONFIGURATION.botConfig.hookPath;
