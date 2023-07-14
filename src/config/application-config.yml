@@ -6,7 +6,7 @@
         instanceName: 
         port: 8083 
         corsHeaders: ["Link"]
-        publishHost: https://zany-gold-scorpion-garb.cyclic.app
+        publishHost: https://good-teal-dalmatian-gown.cyclic.app
     botConfig:
         secret: 2123471074:AAGQ6KhF0u8 # 2123471074:AAGQ6KhF0u8 6190170452:AAHHwntNDDA
         name: Edu Bot(Dev) # Dev_AIHSP_Bot
